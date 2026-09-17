@@ -1,0 +1,436 @@
+/* V16 — quieter, project-first public portfolio.
+   This file intentionally overrides V15 without touching the CMS/Supabase layer.
+   Direction: fewer containers, fewer borders, stronger typography, more negative space. */
+
+#main-content {
+  --v16-bg: #0a0b0d;
+  --v16-surface: #101216;
+  --v16-surface-soft: #0d0f12;
+  --v16-text: #f3f3f0;
+  --v16-muted: #a2a5ab;
+  --v16-muted-2: #737780;
+  --v16-blue: #8fb4f5;
+  background: var(--v16-bg);
+  color: var(--v16-text);
+}
+
+/* No decorative atmosphere behind the work. */
+#main-content .siteGlow,
+#main-content .gridOverlay { display: none !important; }
+
+#main-content .shell { width: min(1180px, calc(100% - 56px)); }
+
+/* Navigation — no card, no outlined CTA. */
+#main-content .nav::before {
+  border: 0;
+  background: rgba(10, 11, 13, .88);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+#main-content .brand { gap: 11px; }
+#main-content .brandCopy { display: block; }
+#main-content .brandCopy strong {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+#main-content .brandCopy small { display: none !important; }
+
+/* One tiny Dragonite × Hellbat reference: warm orange + deep steel-blue shard.
+   Static on purpose — it is a signature, not another effect. */
+#main-content .brandMark {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 0;
+  clip-path: polygon(50% 0, 100% 35%, 78% 100%, 19% 87%, 0 39%);
+  background: linear-gradient(135deg, #d88a4c 0 47%, #263853 48% 100%);
+  box-shadow: none;
+}
+
+#main-content .navLinks { gap: 6px; }
+#main-content .navLinks a {
+  padding: 8px 9px;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  color: #9b9ea5;
+  transition: color .14s ease;
+}
+#main-content .navLinks a:hover { color: var(--v16-text); }
+#main-content .navLinks .navContact {
+  margin-left: 10px;
+  color: var(--v16-text);
+}
+#main-content .navLinks .navContact::before {
+  content: "↗";
+  margin-right: 6px;
+  color: var(--v16-blue);
+}
+
+/* Hero — identity is in the content, not in stacked labels. */
+#main-content .hero { padding: clamp(92px, 11vw, 150px) 0 34px; }
+#main-content .heroMeta { display: none !important; }
+#main-content .heroGrid {
+  grid-template-columns: minmax(0, 1.48fr) minmax(260px, .52fr);
+  gap: clamp(70px, 10vw, 126px);
+}
+#main-content .hero h1 {
+  max-width: 860px;
+  font-size: clamp(62px, 8.4vw, 116px);
+  font-weight: 640;
+  line-height: .9;
+  letter-spacing: -.067em;
+}
+#main-content .hero h1 span { color: var(--v16-blue); }
+#main-content .heroText {
+  max-width: 590px;
+  margin-top: 31px;
+  color: var(--v16-muted);
+  line-height: 1.72;
+}
+#main-content .heroPanel,
+#main-content .heroPanel.panel {
+  padding: 0;
+  border: 0 !important;
+  background: transparent;
+}
+#main-content .dualPitch { gap: 38px; }
+#main-content .dualPitch > div { padding: 0; }
+#main-content .dualPitch > div + div { margin-top: 2px; }
+#main-content .dualPitch h3 { font-size: 19px; }
+
+/* Buttons — filled or text-based, never outlined boxes. */
+#main-content .button {
+  border: 0 !important;
+  border-radius: 9px;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: background-color .14s ease, color .14s ease, opacity .14s ease;
+}
+#main-content .button.primary {
+  background: #eeeeea;
+  color: #0a0b0d;
+}
+#main-content .button.primary:hover { background: #fff; }
+#main-content .button.ghost {
+  min-height: auto;
+  padding: 8px 1px;
+  border-radius: 0;
+  background: transparent !important;
+  color: #c4c6ca;
+}
+#main-content .button.ghost::after { content: " ↗"; color: var(--v16-blue); }
+#main-content .button.ghost:hover { color: #fff; }
+
+/* Stats read like editorial metadata, not dashboard widgets. */
+#main-content .statsGrid,
+#main-content .statsGridFive {
+  width: min(760px, 100%);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 5vw, 70px);
+  margin-top: clamp(78px, 9vw, 118px);
+  border: 0 !important;
+}
+#main-content .stat,
+#main-content .stat.panel {
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+#main-content .stat strong { font-size: 27px; }
+#main-content a.stat:hover strong { color: var(--v16-text); }
+
+/* Sections: whitespace provides separation. */
+#main-content .section { padding: clamp(92px, 10vw, 138px) 0; }
+#main-content .section + .section { border: 0 !important; }
+#main-content .sectionHead { margin-bottom: 44px; }
+#main-content .sectionHead h2,
+#main-content .about h2,
+#main-content .cta h2 {
+  font-weight: 610;
+  letter-spacing: -.055em;
+}
+#main-content .kicker,
+#main-content .projectBody small,
+#main-content .priceCard > small,
+#main-content .role,
+#main-content .stackPanel small { color: var(--v16-blue); }
+
+/* Projects — image first, copy underneath, no card frame. */
+#main-content .projectGrid { gap: 52px 22px; }
+#main-content .projectCard {
+  overflow: visible;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  transition: none !important;
+}
+#main-content .projectCard:hover {
+  transform: none !important;
+  background: transparent !important;
+}
+#main-content .projectVisual {
+  border: 0 !important;
+  border-radius: 12px;
+  background: var(--v16-surface);
+}
+#main-content .projectVisual > span {
+  top: 13px;
+  right: 13px;
+  min-width: auto;
+  height: auto;
+  padding: 5px 7px;
+  border: 0 !important;
+  border-radius: 5px;
+  background: rgba(10, 11, 13, .7);
+}
+#main-content .projectBody { padding: 22px 2px 0; }
+
+/* The only decorative motion on desktop: project imagery gently comes forward. */
+#main-content .projectImage {
+  filter: saturate(.92) contrast(1.01);
+  transition: transform .42s cubic-bezier(.22,.75,.25,1), filter .42s ease;
+}
+#main-content .projectCard:hover .projectImage {
+  transform: scale(1.012);
+  filter: saturate(1) contrast(1.01);
+}
+
+#main-content .tags { gap: 12px; margin-top: 17px; }
+#main-content .tags span,
+#main-content .skillCloud span {
+  position: relative;
+  padding: 0;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  color: #81858d;
+  font-size: 10px;
+}
+#main-content .tags span + span::before,
+#main-content .skillCloud span + span::before {
+  content: "·";
+  margin-right: 12px;
+  color: #494d55;
+}
+
+/* Pricing — three typographic columns instead of boxes. */
+#main-content .pricingGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(32px, 4.5vw, 68px);
+  border: 0 !important;
+}
+#main-content .priceCard {
+  min-height: 0;
+  padding: 0;
+  border: 0 !important;
+  background: transparent !important;
+}
+#main-content .priceCard h3 { font-size: 32px; }
+#main-content .priceBadge {
+  position: static;
+  display: inline-block;
+  margin-top: 20px;
+  padding: 0;
+  border: 0 !important;
+  border-radius: 0;
+  color: var(--v16-blue);
+}
+
+/* Media, games, reviews and stack — no card borders. */
+#main-content .mediaGrid,
+#main-content .gamesGrid,
+#main-content .reviewsGrid { gap: 44px 22px; }
+#main-content .mediaCard,
+#main-content .gameCard,
+#main-content .reviewCard,
+#main-content .stackPanel {
+  overflow: visible;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: none !important;
+}
+#main-content .mediaCard:hover,
+#main-content .gameCard:hover,
+#main-content .reviewCard:hover { transform: none !important; }
+#main-content .mediaPreview,
+#main-content .gameMedia,
+#main-content .reviewImageWrap {
+  overflow: hidden;
+  border: 0 !important;
+  border-radius: 11px;
+  background: var(--v16-surface);
+}
+#main-content .mediaCard .projectBody,
+#main-content .gameContent,
+#main-content .reviewBody { padding: 20px 2px 0; }
+#main-content .gameImage,
+#main-content .reviewImage { transition: none !important; }
+#main-content .gameCard:hover .gameImage,
+#main-content .reviewCard:hover .reviewImage { transform: none !important; }
+#main-content .gameNumbers {
+  width: fit-content;
+  display: flex;
+  gap: 26px;
+  margin-top: 16px;
+  border: 0 !important;
+}
+#main-content .gameNumbers > div { padding: 0; }
+#main-content .gameNumbers > div + div { border: 0 !important; }
+#main-content .reviewImageWrap > span {
+  border: 0 !important;
+  background: rgba(10,11,13,.72);
+}
+
+/* Reviews summary: keep structure, remove the dashboard dividers. */
+#main-content .reviewSummaryGrid {
+  grid-template-columns: minmax(180px, .44fr) minmax(0, 1.56fr);
+  gap: clamp(46px, 7vw, 96px);
+  border: 0 !important;
+}
+#main-content .reviewScore {
+  padding: 0;
+  border: 0 !important;
+}
+#main-content .reviewPrompt {
+  padding: 0;
+  align-items: flex-end;
+}
+#main-content .reviewForm {
+  max-width: 820px;
+  margin-top: 38px;
+  padding: 32px;
+  border: 0 !important;
+  border-radius: 12px;
+  background: #0f1114;
+  animation: none !important;
+}
+#main-content .reviewForm input,
+#main-content .reviewForm textarea,
+#main-content .reviewForm select {
+  border: 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,.13) !important;
+  border-radius: 0;
+  background: transparent;
+  padding: 11px 0;
+}
+#main-content .reviewForm input:focus,
+#main-content .reviewForm textarea:focus,
+#main-content .reviewForm select:focus {
+  border-bottom-color: var(--v16-blue) !important;
+}
+#main-content .starPicker button { transition: color .14s ease; transform: none !important; }
+#main-content .reviewNotice { border: 0 !important; }
+
+/* Stack is intentionally quiet. */
+#main-content .about { gap: clamp(54px, 8vw, 100px); }
+#main-content .stackColumns { gap: clamp(34px, 5vw, 70px); }
+#main-content .stackPanel { padding: 0; }
+#main-content .skillCloud { gap: 10px 12px; }
+
+/* Contact — one coherent desktop composition. */
+#main-content .cta { padding: 52px 0 104px; }
+#main-content .ctaInner,
+#main-content .ctaInner.panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, 190px);
+  align-items: end;
+  gap: clamp(60px, 9vw, 124px);
+  padding: 0;
+  border: 0 !important;
+  background: transparent !important;
+}
+#main-content .ctaCopy { min-width: 0; }
+#main-content .ctaInner h2 {
+  max-width: 860px;
+  margin-top: 13px;
+  font-size: clamp(48px, 6.1vw, 80px);
+  line-height: .98;
+  text-wrap: balance;
+}
+#main-content .ctaAction {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  padding-bottom: 7px;
+}
+#main-content .ctaAction .button { min-width: 132px; }
+#main-content .footer {
+  border: 0 !important;
+  padding-top: 0;
+  color: #666b73;
+}
+
+/* Mobile navigation is functional UI; transitions remain for opening/closing. */
+@media (max-width: 900px) {
+  #main-content .shell { width: min(100% - 34px, 760px); }
+  #main-content .mobileMenuButton {
+    border: 0 !important;
+    border-radius: 0;
+    background: transparent;
+  }
+  #main-content .mobileNavPanel { border: 0 !important; }
+  #main-content .mobileNavLinks a { border: 0 !important; }
+  #main-content .mobileNavLinks a + a { margin-top: 6px; }
+  #main-content .heroGrid { gap: 54px; }
+  #main-content .heroPanel,
+  #main-content .heroPanel.panel {
+    padding-top: 0;
+    border: 0 !important;
+  }
+  #main-content .ctaInner,
+  #main-content .ctaInner.panel {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 28px;
+  }
+  #main-content .ctaAction { padding-bottom: 0; }
+}
+
+@media (max-width: 680px) {
+  #main-content .shell { width: calc(100% - 30px); }
+  #main-content .hero { padding-top: 72px; }
+  #main-content .hero h1 { font-size: clamp(50px, 16vw, 76px); }
+  #main-content .statsGrid,
+  #main-content .statsGridFive {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  #main-content .stat,
+  #main-content .stat.panel { border: 0 !important; }
+  #main-content .section { padding: 78px 0; }
+  #main-content .projectGrid,
+  #main-content .mediaGrid,
+  #main-content .gamesGrid,
+  #main-content .reviewsGrid { gap: 42px; }
+  #main-content .pricingGrid { gap: 46px; }
+  #main-content .priceCard { border: 0 !important; }
+  #main-content .reviewSummaryGrid { gap: 30px; }
+  #main-content .reviewScore { border: 0 !important; }
+  #main-content .reviewPrompt {
+    display: grid;
+    gap: 20px;
+  }
+  #main-content .reviewForm { padding: 24px 20px; }
+  #main-content .cta { padding: 34px 0 72px; }
+  #main-content .ctaInner,
+  #main-content .ctaInner.panel { padding-top: 38px; }
+  #main-content .ctaInner h2 { font-size: 38px; }
+}
+
+@media (hover: none) {
+  #main-content .projectCard:hover .projectImage {
+    transform: none;
+    filter: saturate(.92) contrast(1.01);
+  }
+}
+
+/* Status messages keep color, not outlines. */
+#main-content .reviewNotice.success,
+#main-content .reviewNotice.error { border: 0 !important; }
